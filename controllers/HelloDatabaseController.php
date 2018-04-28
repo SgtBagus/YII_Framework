@@ -91,4 +91,33 @@ class HelloDatabaseController extends Controller
                                                         'query5'=>$query5,
                                                     ]);
     }
+
+    public function actionDemoActiveQueryCreate()
+    {
+        $teams = new Teams();
+        $teams->name = 'Real Madrid FC';
+        $teams->country = 'Spain';
+        $teams->description = 'Lorem ipsum sit dolor amet';
+        $teams->save();
+
+        return $this->render('message', ['method'=>__METHOD__]);
+    }
+
+    public function actionDemoActiveQueryEdit()
+    {
+        $teams = Teams::findOne(11);
+        $teams->name = 'Real Madrid Football Club';
+        $teams->description = 'One of the most popular football club in the world';
+        $teams->save();
+
+        return $this->render('message', ['method'=>__METHOD__]);
+    }
+
+    public function actionDemoActiveQueryDelete()
+    {
+        $teams = Teams::findOne(11);
+        $teams->delete();
+
+        return $this->render('message', ['method'=>__METHOD__]);
+    }
 }
