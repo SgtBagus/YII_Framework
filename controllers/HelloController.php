@@ -20,7 +20,7 @@ class HelloController extends Controller
 
     public function actionIndex()
     {
-        echo "Jadi Function untuk Index pertamnya itu disini XD";
+        return $this->redirect('/hello-yii/web/index.php/site/index');
     }
 
     public function actionPosts($id=0, $category="all")
